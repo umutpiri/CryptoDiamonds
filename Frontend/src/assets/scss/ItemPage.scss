@@ -1,0 +1,99 @@
+.KittyBanner{
+    position:relative;
+    display:inline-block;
+    height: 500px;
+    width:100%;
+    background-color: rgb(211, 243, 247);
+    border-radius: 1%;
+    margin-left: 5px;
+  }
+
+  .KittyHeader{
+      margin-left: 40px;
+  }
+
+  .diamond{
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .KittyHeader-owner{
+    display: inline-block;
+  }
+
+  .owner-photo{
+    display: inline;
+    vertical-align: middle;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+  }
+
+  .KittyHeader-owner-name{
+    display: inline;
+    vertical-align: middle ;
+    margin-left: 20px;
+  }
+
+  .owner{
+    margin-left: 20px;
+    font-family:Arial;
+  }
+
+  .offerButton{
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(76, 175, 80);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    position: absolute;
+    right:    50px;
+    bottom:   25px;
+  }
+
+  .offerButton:hover {background-color: #3e8e41}
+
+  .offerButton:active {
+   background-color: #3e8e41;
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+  }
+
+
+.KittyBanner-Buy {
+  margin-left: 15px;
+  margin-top: 15px;
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	border:1px solid #dbafdb;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a8a9e;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+.KittyBanner-Buy:hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.KittyBanner-Buy:active {
+	position:relative;
+	top:1px;
+}

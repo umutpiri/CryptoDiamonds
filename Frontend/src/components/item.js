@@ -1,7 +1,6 @@
 import React from 'react';
 import diamond from '../assets/img/dio2.png'
-
-import '../index.css'
+import '../assets/scss/Item.scss';
 
 class Item extends React.Component {
 

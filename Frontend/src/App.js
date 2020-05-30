@@ -9,22 +9,11 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import MainPage from '../pages/MainPage';
-import Loading from './Loading';
-import MetaMaskLoginButton from './MetaMaskLoginButton';
+import MainPage from './pages/MainPage';
+import ItemPage from './pages/ItemPage';
+import LoginPage from './pages/LoginPage';
+import MetaMaskLoginButton from './components/MetaMaskLoginButton';
 
-const AsyncDynamicPAge = importedComponent(
-  () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
-  {
-    LoadingComponent: Loading
-  }
-);
-const AsyncNoMatch = importedComponent(
-  () => import(/* webpackChunkName:'NoMatch' */ './NoMatch'),
-  {
-    LoadingComponent: Loading
-  }
-);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +43,7 @@ const App = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Menu
           </Typography>
           <Button color="inherit">Login</Button>
           <MetaMaskLoginButton login={metaMaskLogin}/>
@@ -62,8 +51,8 @@ const App = () => {
       </AppBar>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/dynamic" component={AsyncDynamicPAge} />
-          <Route component={AsyncNoMatch} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/itemPage" component={ItemPage} />
         </Switch>
       </div>
     </Router>

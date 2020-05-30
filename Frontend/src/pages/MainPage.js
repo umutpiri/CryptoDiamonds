@@ -1,6 +1,7 @@
 import React from 'react';
+import '../assets/scss/MainPage.scss';
+import '../assets/scss/App.scss';
 import Item from '../components/item';
-import '../index.css'
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class MainPage extends React.Component {
     ));
     return (
       <div class="AllCategories">
+            
        <div class="KittiesCategory">
            <h1 class="heading--xss KittiesCategoryTitle"> Best Seller</h1>
            <p class="KittiesCategory-subtitle">
