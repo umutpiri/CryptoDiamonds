@@ -1,0 +1,33 @@
+.app {
+  font-family: helvetica, arial, sans-serif;
+  padding: 2em;
+
+  /*p {
+    background-color: yellow;
+  }*/
+}
+
+.KittiesGrid-item{
+  position:relative;
+  display:inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: powderblue;
+  border-radius: 5%;
+  margin-left: 5px;
+}
+
+.KittyCard-image{
+  height: 120px;
+  width: 120px;
+}
+
+.AllCategories{
+  display: 'block';
+  text-align: center;
+}
+
+.KittiesCategory{
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
