@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/scss/ItemPage.scss';
-import diamond from '../assets/img/dio2.png'
-import ownerPhoto from '../assets/img/dio2.png'
+import diamond from '../assets/img/diamond.png'
+import ownerPhoto from '../assets/img/diamond.png'
 import Popup from '../components/Popup'; 
 
 class ItemPage extends React.Component {
@@ -20,29 +20,29 @@ class ItemPage extends React.Component {
 
   render() {
     return (
-      <div class="KittyPage">
-        <div class="KittyBanner">
-          <div class="KittyBanner-Status">
-            <button class="KittyBanner-Buy"> Buy 0.0069 ETH $1.62 USD</button>
+      <div className="KittyPage">
+        <div className="KittyBanner">
+          <div className="KittyBanner-Status">
+            <button className="KittyBanner-Buy"> Buy 0.0069 ETH $1.62 USD</button>
           </div>
-          <img class="diamond" src={diamond}  />
+          <img className="diamond" src={diamond}  />
         </div>
-        <div class="KittyProfile">
+        <div className="KittyProfile">
 
-          <div class="KittyHeader" >
-            <div class="KittyHeader-main">
-              <h1 class="KittyHeader-name-class">Shiniest Diamond</h1>
+          <div className="KittyHeader" >
+            <div className="KittyHeader-main">
+              <h1 className="KittyHeader-name-className">Shiniest Diamond</h1>
             </div>
 
-            <div class="KittyHeader-owner"></div>
-              <h4 class="owner">Owner</h4>
-              <img class="owner-photo" src={ownerPhoto} />
-              <h2 class="KittyHeader-owner-name" >Richie Rich </h2>
+            <div className="KittyHeader-owner"></div>
+              <h4 className="owner">Owner</h4>
+              <img className="owner-photo" src={ownerPhoto} />
+              <h2 className="KittyHeader-owner-name" >Richie Rich </h2>
               
 
-            <div class="KittyHeader-actions">
+            <div className="KittyHeader-actions">
               
-                <button class="offerButton" onClick={this.togglePopup.bind(this)}> Make Offer</button>  
+                <button className="offerButton" onClick={this.togglePopup.bind(this)}> Make Offer</button>  
 
                 {this.state.showPopup ?  
                 <Popup   

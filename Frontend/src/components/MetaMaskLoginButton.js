@@ -27,7 +27,7 @@ class MetaMaskLoginButton extends Component {
       isLogin: false
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     if (typeof web3 !== "undefined") {
       this.state.install = false;
       window.ethereum.on("networkChanged", accounts => {

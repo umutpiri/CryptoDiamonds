@@ -24,11 +24,10 @@ class MainPage extends React.Component {
       <Item key={index} message={mapItem.message} price={mapItem.price} />
     ));
     return (
-      <div class="AllCategories">
-            
-       <div class="KittiesCategory">
-           <h1 class="heading--xss KittiesCategoryTitle"> Best Seller</h1>
-           <p class="KittiesCategory-subtitle">
+      <div className="AllCategories">
+       <div className="KittiesCategory">
+           <h1> Best Seller</h1>
+           <p>
             <span>
               "Share your collection in the "
               <a href="https://discord.gg/K86qFg" >CryptoColors Discord </a>
@@ -39,14 +38,14 @@ class MainPage extends React.Component {
            {items}
        </div>
 
-       <div class="KittiesCategory">
-           <h1 class="heading--xss KittiesCategoryTitle"> Great-value Gems</h1>
+       <div className="KittiesCategory">
+           <h1> Great-value Gems</h1>
            {items} 
            {items}
        </div>
 
-       <div class="KittiesCategory">
-           <h1 class="heading--xss KittiesCategoryTitle"> Fundemental Gems</h1>
+       <div className="KittiesCategory">
+           <h1> Fundemental Gems</h1>
            {items} 
            {items}
        </div>

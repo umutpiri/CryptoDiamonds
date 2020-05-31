@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -32,6 +32,8 @@ const metaMaskLogin = () => {
 }
 
 
+
+
 const App = () => {
   const classes = useStyles();
   return (
@@ -39,13 +41,15 @@ const App = () => {
       <div>
       <AppBar position="static">
         <Toolbar>
+          <NavLink to="/" style={{color: '#FFF'}}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+          </NavLink>
           <Typography variant="h6" className={classes.title}>
             Menu
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">L</Button>
           <MetaMaskLoginButton login={metaMaskLogin}/>
         </Toolbar>
       </AppBar>

@@ -7,10 +7,11 @@
     background-color: rgb(211, 243, 247);
     border-radius: 5%;
     margin-left: 5px;
+    cursor: pointer;
   }
 
 .overlay-item{
-    filter: opacity(0.5) drop-shadow(0 0 0 #FF05FF);
+    filter: opacity(0.75) drop-shadow(0 0 0 #550700);
 }
 
 .oldubu{
