@@ -8,3 +8,11 @@
     border-radius: 5%;
     margin-left: 5px;
   }
+
+.overlay-item{
+    filter: opacity(0.5) drop-shadow(0 0 0 #FF05FF);
+}
+
+.oldubu{
+    filter: invert(8%) sepia(100%) saturate(7448%) hue-rotate(247deg) brightness(96%) contrast(144%);
+}

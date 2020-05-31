@@ -10,7 +10,7 @@ class Item extends React.Component {
             <div class="KittyCard-main" onClick={event =>  window.location.href='/itemPage'}>
                 <div class= "KittyCard-main-container">
                     <div class= "KittyCard-imageContainer shadow" style = {{ border: '2px solid grey' ,borderRadius: 5 }}>
-                        <img src={diamond} style={{ width: 200, height: 200, justifyContent: 'flex-end' }} />
+                        <img class="overlay-item" src={diamond} style={{ width: 200, height: 200, justifyContent: 'flex-end' }} />
                         <div class="Item-description" style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>
                             <p> {this.props.message +' ' }   </p>
                             
