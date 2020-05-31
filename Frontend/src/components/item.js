@@ -21,7 +21,9 @@ class Item extends React.Component {
                   width: 200,
                   height: 200,
                   justifyContent: "flex-end",
-                  filter: `opacity(0.75) drop-shadow(0 0 0 ${this.props.color})`,
+                  filter: `opacity(0.75) drop-shadow(0 0 0 ${
+                    this.props.color || "#000"
+                  })`,
                 }}
               />
               <div
