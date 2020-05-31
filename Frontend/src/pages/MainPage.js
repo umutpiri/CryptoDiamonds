@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/scss/MainPage.scss';
 import '../assets/scss/App.scss';
-import Item from '../components/item';
+import Item from '../components/Item';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -11,17 +11,19 @@ class MainPage extends React.Component {
         {
           message: '#108865',
           price: '50$',
+          color: '#FFFF00'
         },
         {
           message: '#108893',
           price: '100$',
+          color: '#00FF00'
         },
       ],
     };
   }
   render() {
     const items = this.state.itemContainer.map((mapItem, index) => (
-      <Item key={index} message={mapItem.message} price={mapItem.price} />
+      <Item key={index} color={mapItem.color} message={mapItem.message} price={mapItem.price} />
     ));
     return (
       <div className="AllCategories">

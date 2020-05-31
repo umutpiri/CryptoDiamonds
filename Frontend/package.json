@@ -21,7 +21,6 @@
     "file-loader": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
     "react-delay-render": "^0.1.2",
     "react-dom": "^16.13.1",
     "react-horizontal-scrolling-menu": "^0.7.7",
@@ -67,10 +66,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esausilva/react-starter-boilerplate-hmr.git"
-  },
-  "bugs": {
-    "url": "https://github.com/esausilva/react-starter-boilerplate-hmr/issues"
+    "url": "https://github.com/umutpiri/CryptoDiamonds.git"
   },
   "keywords": [
     "react",

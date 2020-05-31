@@ -24,26 +24,26 @@ class MetaMaskLoginButton extends Component {
       isMetaMask: false,
       isLoginMetaMask: false,
       isDesiredNetwork: false,
-      isLogin: false
+      isLogin: false,
     };
   }
   componentDidMount() {
     if (typeof web3 !== "undefined") {
       this.state.install = false;
-      window.ethereum.on("networkChanged", accounts => {
+      window.ethereum.on("networkChanged", (accounts) => {
         if (accounts === "3") {
           this.setState({
             isLogin: true,
             isDesiredNetwork: false,
             isMetaMask: false,
-            isLoginMetaMask: false
+            isLoginMetaMask: false,
           });
         } else {
           this.setState({
             isLogin: false,
             isDesiredNetwork: true,
             isMetaMask: false,
-            isLoginMetaMask: false
+            isLoginMetaMask: false,
           });
         }
       });
@@ -110,19 +110,19 @@ class MetaMaskLoginButton extends Component {
       const accounts = await window.ethereum.enable();
       this.setState({
         isDesiredNetwork: true,
-        isMetaMask: false
+        isMetaMask: false,
       });
       this.network();
     } catch (error) {
       this.setState({ isLoginMetaMask: true, isMetaMask: false });
     }
-    window.ethereum.on("accountsChanged", accounts => {
+    window.ethereum.on("accountsChanged", (accounts) => {
       if (accounts.length === 1) {
         this.setState({
           isLoginMetaMask: true,
           isMetaMask: false,
           isDesiredNetwork: false,
-          isLogin: false
+          isLogin: false,
         });
         this.init();
       } else {
@@ -130,7 +130,7 @@ class MetaMaskLoginButton extends Component {
           isLoginMetaMask: false,
           isMetaMask: false,
           isDesiredNetwork: false,
-          isLogin: true
+          isLogin: true,
         });
       }
     });
@@ -141,20 +141,20 @@ class MetaMaskLoginButton extends Component {
     if (window.ethereum.networkVersion === "3") {
       this.setState({ isLogin: true });
     } else {
-      window.ethereum.on("networkChanged", accounts => {
+      window.ethereum.on("networkChanged", (accounts) => {
         if (accounts === "3") {
           this.setState({
             isLogin: true,
             isDesiredNetwork: false,
             isMetaMask: false,
-            isLoginMetaMask: false
+            isLoginMetaMask: false,
           });
         } else {
           this.setState({
             isLogin: false,
             isDesiredNetwork: true,
             isMetaMask: false,
-            isLoginMetaMask: false
+            isLoginMetaMask: false,
           });
         }
       });
@@ -167,7 +167,7 @@ class MetaMaskLoginButton extends Component {
   }
 
   handleShow() {
-    this.props.login()
+    this.props.login();
     this.setState({ show: true });
     this.mount();
   }
@@ -175,7 +175,7 @@ class MetaMaskLoginButton extends Component {
   render() {
     return (
       <div>
-        <MetaMaskButton  onClick={this.handleShow}>
+        <MetaMaskButton onClick={this.handleShow}>
           {this.state.install ? "Install MetaMask" : "Connect with MetaMask"}
         </MetaMaskButton>
       </div>

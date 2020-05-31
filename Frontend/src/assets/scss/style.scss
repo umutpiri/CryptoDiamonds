@@ -1,39 +1,39 @@
-.popup {  
-    position: fixed;  
-    width: 30%;  
-    height: 70%;  
-    top: 0;  
-    left: 0;  
-    right: 0;  
-    bottom: 0;  
-    margin: auto;  
-    background-color: whitesmoke;  
-    border-style: groove;
-  }  
-  .popup\_inner {  
-    position: absolute;  
-    left: 25%;  
-    right: 25%;  
-    top: 25%;  
-    bottom: 25%;  
-    margin: auto;  
-    border-radius: 20px;  
-    background: white;  
-  }
-  
-  .grey_line{
-    border-bottom: 3px dashed rgb(214, 212, 212);
-  }
+.popup {
+  position: fixed;
+  width: 30%;
+  height: 70%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: whitesmoke;
+  border-style: groove;
+}
+.popup\_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  border-radius: 20px;
+  background: white;
+}
 
-  .popup_offer {
-    width: 100%; 
-    text-align: center; 
-    border-bottom: 1px solid #000; 
-    line-height: 0.1em;
-    margin: 10px 0 20px; 
- } 
- 
- .popup_offer span { 
-     background:#fff; 
-     padding:0 10px; 
- }
+.grey_line {
+  border-bottom: 3px dashed rgb(214, 212, 212);
+}
+
+.popup_offer {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.popup_offer span {
+  background: #fff;
+  padding: 0 10px;
+}

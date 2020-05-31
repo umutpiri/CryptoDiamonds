@@ -1,19 +1,19 @@
-
-.KittiesGrid-item{
-    position:relative;
-    display:inline-block;
-    height: 200px;
-    width: 200px;
-    background-color: rgb(211, 243, 247);
-    border-radius: 5%;
-    margin-left: 5px;
-    cursor: pointer;
-  }
-
-.overlay-item{
-    filter: opacity(0.75) drop-shadow(0 0 0 #550700);
+.KittiesGrid-item {
+  position: relative;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: rgb(211, 243, 247);
+  border-radius: 5%;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
-.oldubu{
-    filter: invert(8%) sepia(100%) saturate(7448%) hue-rotate(247deg) brightness(96%) contrast(144%);
+.overlay-item {
+  filter: opacity(0.75) drop-shadow(0 0 0 #550700);
+}
+
+.oldubu {
+  filter: invert(8%) sepia(100%) saturate(7448%) hue-rotate(247deg)
+    brightness(96%) contrast(144%);
 }
