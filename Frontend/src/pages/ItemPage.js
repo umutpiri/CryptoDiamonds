@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/scss/ItemPage.scss";
 import diamond from "../assets/img/diamond.png";
-import ownerPhoto from "../assets/img/diamond.png";
+import ownerPhoto from "../assets/img/richieRich.jpg";
 import Popup from "../components/Popup";
 
 class ItemPage extends React.Component {
