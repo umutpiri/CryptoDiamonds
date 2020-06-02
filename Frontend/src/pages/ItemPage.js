@@ -23,7 +23,7 @@ class ItemPage extends React.Component {
           <div className="KittyBanner-Status">
             <button className="KittyBanner-Buy">
               {" "}
-              Buy 10 dio
+              Buy 10 bugday(bdy)
             </button>
           </div>
           <img className="diamond" src={diamond} />
@@ -58,7 +58,7 @@ class ItemPage extends React.Component {
                     <h3 class="KittyBid-box-title">Buy now price </h3>
                     <button class="buyWithDio">Buy with dio</button>
                     <div>
-                      <h5> 10 dio</h5>
+                      <h5> 10 bugday(bdy)</h5>
                     </div>
                   </div>
                 </div>
