@@ -30,13 +30,13 @@ class Item extends React.Component {
                 className="Item-description"
                 style={{
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                   alignItems: "center",
+                  margin: 5,
                 }}
               >
-                <p> {this.props.message + " "} </p>
-
-                <p>{this.props.price}</p>
+                <div> {this.props.color || "#000000"} </div>
+                <div>{this.props.price}</div>
               </div>
             </div>
           </div>

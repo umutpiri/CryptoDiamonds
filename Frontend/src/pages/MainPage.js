@@ -9,18 +9,19 @@ class MainPage extends React.Component {
     this.state = {
       itemContainer: [
         {
-          message: "#108865",
           price: "50$",
           color: "#FFFF00",
         },
         {
-          message: "#108893",
           price: "100$",
           color: "#00FF00",
         },
         {
-          message: "#000000",
           price: "70$",
+        },
+        {
+          price: "10$",
+          color: "#D3F3F7",
         },
       ],
     };
