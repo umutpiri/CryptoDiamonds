@@ -22,8 +22,7 @@ class Popup extends React.Component {
           <ul>
             <li>Offer amount is held in escrow for 1 days.</li>
             <li>
-              Total 3.75% fee is collected when your offer is successful or
-              cancelled.
+              Total 3.75% fee is collected when your offer is successful or cancelled.
             </li>
             <li>Expired or outbid offers incur a flat 0.001 ETH fee.</li>
             <li>

@@ -23,7 +23,7 @@ class ItemPage extends React.Component {
           <div className="KittyBanner-Status">
             <button className="KittyBanner-Buy">
               {" "}
-              Buy 0.0069 ETH $1.62 USD
+              Buy 10 dio
             </button>
           </div>
           <img className="diamond" src={diamond} />
@@ -31,7 +31,7 @@ class ItemPage extends React.Component {
         <div className="KittyProfile">
           <div className="KittyHeader">
             <div className="KittyHeader-main">
-              <h1 className="KittyHeader-name-className">Shiniest Diamond</h1>
+              <h1 className="KittyHeader-name-className">#123488</h1>
             </div>
 
             <div className="KittyHeader-owner"></div>
@@ -51,6 +51,18 @@ class ItemPage extends React.Component {
               {this.state.showPopup ? (
                 <Popup closePopup={this.togglePopup.bind(this)} />
               ) : null}
+
+              <div class = "KittySection-content">
+                <div class = "KittyBid-boxes">
+                  <div class = "KittyBid-box">
+                    <h3 class="KittyBid-box-title">Buy now price </h3>
+                    <button class="buyWithDio">Buy with dio</button>
+                    <div>
+                      <h5> 10 dio</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
