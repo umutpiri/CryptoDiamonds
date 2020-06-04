@@ -1,15 +1,23 @@
+.KittyPage{
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
 .KittyBanner {
   position: relative;
   display: inline-block;
   height: 500px;
   width: 100%;
   background-color: rgb(211, 243, 247);
-  border-radius: 1%;
+  border-radius: 2%;
   margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .KittyHeader {
-  margin-left: 40px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .diamond {
@@ -59,8 +67,8 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
   position: absolute;
-  right: 50px;
-  bottom: 25px;
+  right: 120px;
+  bottom: 30px;
 }
 
 .offerButton:hover {
@@ -90,6 +98,26 @@
   text-decoration: none;
   text-shadow: 0px 1px 0px #e1e2ed;
 }
+
+.buyWithDio{
+  margin-top: 8px;
+  margin-right: 20px;
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab8b1 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #dbafdb;
+  display: inline-block;
+  cursor: pointer;
+  color: #3a8a9e;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  float: right;
+
+}
 .KittyBanner-Buy:hover {
   background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
   background-color: #bab1ba;
@@ -97,4 +125,27 @@
 .KittyBanner-Buy:active {
   position: relative;
   top: 1px;
+}
+
+.KittyHeader-actions{
+  margin-top: 80px;
+}
+
+.KittySection-content{
+  border-style: groove;
+  border-radius: 3px;
+  margin-right: 350px;
+  margin-bottom: 30px;
+  margin-left: 350px;
+}
+
+.KittyBid-boxes{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.KittyBid-box-title{
+  display: inline-block;
 }

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 
+import ProfilePage from "./pages/ProfilePage";
 import MainPage from "./pages/MainPage";
 import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route exact path="/" component={MainPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/itemPage" component={ItemPage} />
+            <Route path="/profile" component={ProfilePage} />
           </Switch>
         </div>
       </Router>

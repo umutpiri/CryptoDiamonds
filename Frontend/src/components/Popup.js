@@ -1,42 +1,81 @@
 import React from "react";
-import "../assets/scss/style.scss";
-
+import "../assets/scss/popupOffer.scss";
+import Popupt from 'react-popup';
 class Popup extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {offer: ''};
+  }
+
+  offerHandler = (event) => {
+    this.setState({offer: event.target.value});
+  }
+
   render() {
+    
+    /** I'm not sure this is the true place to write if clause */
+    let offerValue = '';
+    if (this.state.offer) {
+      offerValue = <h1> {this.state.offer} bugday(bdy) </h1>;
+    } else {
+      offerValue = '';
+    }
+
     return (
       <div className="popup">
-        <h3></h3>
-        <h1 class="popup_offer">
-          <span>Make an Offer</span>
-        </h1>
-        <h4>Your offer must exceed 0.03 ether.</h4>
-        <p class="grey_line"></p>
-        <div class="popup_estimatedTransactionFee">
-          <h3>Estimated Transaction Fee </h3>
-          <p> 0.001 ETH $0.07 USD</p>
-          <p class="grey_line"></p>
-        </div>
+        <div class = "popup_resize">
+          <div class= "popup_title">
+            <h1 class="popup_offer">
+              <span>Make an Offer</span>
+            </h1>
+            <h2 class="showOffer" > {offerValue} </h2>
 
-        <div class="popup_beforeConfirm">
-          <h3>Before you confirm</h3>
-          <ul>
-            <li>Offer amount is held in escrow for 1 days.</li>
-            <li>
-              Total 3.75% fee is collected when your offer is successful or
-              cancelled.
-            </li>
-            <li>Expired or outbid offers incur a flat 0.001 ETH fee.</li>
-            <li>
-              A Kitty’s cooldown may change between the time an offer is made
-              and concluded.
-            </li>
-          </ul>
-          <p class="grey_line"></p>
-        </div>
+            <p class="grey_line"></p>
+          </div>
 
-        <div className="popup\_inner">
-          <h1>{this.props.text}</h1>
-          <button onClick={this.props.closePopup}>close me</button>
+          <div class="popup_estimatedTransactionFee">
+            <h3 class = "estimated_H3" >Estimated Transaction Fee </h3>
+            <p class = "estimated_p"> {"<"} % 1 bugday (bdy) </p>
+            <p class="grey_line"></p>
+          </div>
+
+          <div class= "popup_totalFee">
+            <h3 class = "totalFee_H3" >Total Fee </h3>
+            <p class = "totalFee_p"> 3.75% bugday (bdy) </p>
+            <p class="grey_line"></p>
+          </div>
+
+          <div class="popup_beforeConfirm">
+            <h3>Before you confirm</h3>
+            <ul>
+              <li>Offer amount is held in escrow for 1 days.</li>
+              <li>
+                Total 3.75% fee is collected when your offer is successful or cancelled.
+              </li>
+              <li>Expired or outbid offers incur a flat 0.001 ETH fee.</li>
+              <li>
+                A Diamond’s cooldown may change between the time an offer is made and concluded.
+              </li>
+            </ul>
+            <p class="grey_line"></p>
+          </div>
+
+          <div class = "offerInput">
+              <input class="orderInput"
+                type="number"
+                placeholder="Type your offer"
+                onChange={this.offerHandler}
+              />
+            </div>
+
+          <div className="popup\_inner">
+            <h1>{this.props.text}</h1>
+          </div>
+          <div class="offerAndNevermindButtons">
+            <h2 class="closeText" onClick={this.props.closePopup}>Nevermind</h2>
+          </div>
+          
         </div>
       </div>
     );
