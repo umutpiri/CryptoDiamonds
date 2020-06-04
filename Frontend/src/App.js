@@ -28,7 +28,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "test",
+      user: {
+        name: "umut",
+        coin: 100,
+      },
     };
   }
 
@@ -37,7 +40,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Header />
+          <Header user={this.state.user} />
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/login" component={LoginPage} />
