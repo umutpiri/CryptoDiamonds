@@ -9,8 +9,6 @@ import HomeIcon from "@material-ui/icons/Home";
 import UserIcon from "@material-ui/icons/Person";
 import { useHistory, Link } from "react-router-dom";
 
-import MetaMaskLoginButton from "./MetaMaskLoginButton";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const renderLogin = (user) => {
-  if (user) {
+  if (user.name) {
     return (
       <div
         style={{
@@ -62,11 +60,11 @@ const renderLogin = (user) => {
   }
   return (
     <div>
-      <Link to="/" style={{ color: "#FFF", margin: 5 }}>
+      <Link to="/login" style={{ color: "#FFF", margin: 5 }}>
         Login
       </Link>
       /
-      <Link to="/" style={{ color: "#FFF", margin: 5 }}>
+      <Link to="/register" style={{ color: "#FFF", margin: 5 }}>
         Register
       </Link>
     </div>
@@ -89,9 +87,13 @@ export default function Header(props) {
           >
             <HomeIcon />
           </IconButton>
+
           <Typography variant="h6" className={classes.title}>
-            News
+            <Link to="/" style={{ color: "#FFF" }}>
+              Crypto Diamonds
+            </Link>
           </Typography>
+
           {renderLogin(props.user)}
         </Toolbar>
       </AppBar>

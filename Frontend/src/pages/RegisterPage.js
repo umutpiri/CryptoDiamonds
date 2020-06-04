@@ -26,27 +26,21 @@ const useStyles = (theme) => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 });
 
-class Login extends React.Component {
+class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
+      email: "",
       password: "",
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.login(this.state);
   }
 
   render() {
@@ -59,42 +53,44 @@ class Login extends React.Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Register
           </Typography>
-          <form
-            onSubmit={this.handleSubmit}
-            className={classes.form}
-            noValidate
-          >
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoFocus
-              value={this.state.username}
-              onChange={(e) => this.setState({ username: e.target.value })}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={this.state.password}
-              onChange={(e) => this.setState({ password: e.target.value })}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                />
+              </Grid>
+            </Grid>
             <Button
               type="submit"
               fullWidth
@@ -102,12 +98,12 @@ class Login extends React.Component {
               color="primary"
               className={classes.submit}
             >
-              Login
+              Register
             </Button>
-            <Grid container>
+            <Grid container justify="flex-end">
               <Grid item>
-                <Link to="/register" variant="body2">
-                  {"Don't have an account? Register"}
+                <Link to="/login" variant="body2">
+                  Already have an account? Login
                 </Link>
               </Grid>
             </Grid>
@@ -118,4 +114,4 @@ class Login extends React.Component {
   }
 }
 
-export default withStyles(useStyles)(Login);
+export default withStyles(useStyles)(Register);
