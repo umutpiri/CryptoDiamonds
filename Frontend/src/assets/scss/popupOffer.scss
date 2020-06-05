@@ -95,6 +95,7 @@
 }
 
 .closeText{
+  margin-top: 50px;
   text-decoration:underline;
   text-align: center;
 }
@@ -103,30 +104,30 @@
   cursor: pointer;
 }
 
-.confirmOffer {
+.confirmButton {
+  margin-top: 20px;
   display: inline-block;
-  padding: 7px 12px;
+  padding: 15px 25px;
   font-size: 24px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: rgb(76, 175, 80);
+  background-color: rgb(228, 158, 67);
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
-  position: absolute;
-  right: 120px;
-  bottom: 30px;
 }
 
-.confirmOffer:hover {
-  background-color: #3e8e41;
-}
+.confirmButton:hover {background-color: #c9852c}
 
-.confirmOffer:active {
-  background-color: #3e8e41;
+.confirmButton:active {
+  background-color: #c9852c;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.offerAndNevermindButtons{
+  text-align: center;
 }

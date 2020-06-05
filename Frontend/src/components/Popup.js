@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/scss/popupOffer.scss";
-import Popupt from 'react-popup';
+
 class Popup extends React.Component {
 
   constructor(props){
@@ -11,6 +11,8 @@ class Popup extends React.Component {
   offerHandler = (event) => {
     this.setState({offer: event.target.value});
   }
+
+
 
   render() {
     
@@ -72,7 +74,9 @@ class Popup extends React.Component {
           <div className="popup\_inner">
             <h1>{this.props.text}</h1>
           </div>
+
           <div class="offerAndNevermindButtons">
+            <button class="confirmButton">Confirm Offer</button>
             <h2 class="closeText" onClick={this.props.closePopup}>Nevermind</h2>
           </div>
           
