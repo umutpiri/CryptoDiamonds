@@ -12,6 +12,7 @@ import MainPage from "./pages/MainPage";
 import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import OffersPage from "./pages/OffersPage";
 import Header from "./components/Header";
 
 const useStyles = (theme) => ({
@@ -55,6 +56,7 @@ class App extends React.Component {
             <Route path="/register" component={RegisterPage} />
             <Route path="/itemPage" component={ItemPage} />
             <Route path="/profile" component={ProfilePage} />
+            <Route path="/offers" component={OffersPage} />
           </Switch>
         </div>
       </Router>

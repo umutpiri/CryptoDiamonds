@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/scss/MainPage.scss";
 import "../assets/scss/App.scss";
 import Item from "../components/Item";
+import { Link } from "react-router-dom";
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class MainPage extends React.Component {
     ));
     return (
       <div className="AllCategories">
+        <Link to="/offers">OFFERS</Link>
         <div className="KittiesCategory">
           <h1> Best Seller</h1>
           <p>
