@@ -3,7 +3,6 @@ import "../assets/scss/ItemPage.scss";
 import diamond from "../assets/img/diamond.png";
 import ownerPhoto from "../assets/img/richieRich.jpg";
 import Popup from "../components/Popup";
-import { useHistory } from 'react-router-dom';
 
 class ItemPage extends React.Component {
   constructor(props) {
@@ -35,12 +34,14 @@ class ItemPage extends React.Component {
               <h1 className="KittyHeader-name-className">#123488</h1>
             </div>
 
-            <div className="KittyHeader-owner">
-              <h4 className="owner">Owner</h4>
-              <img className="owner-photo"  src={ownerPhoto} />
-              <h2 className="KittyHeader-owner-name">Richie Rich </h2>
-            </div>
-
+            <a href="/profile">
+             <div className="KittyHeader-owner" >
+                <h4 className="owner">Owner</h4>
+                <img className="owner-photo"  src={ownerPhoto} />
+                <h2 className="KittyHeader-owner-name">Richie Rich </h2>
+              </div>              
+            </a>
+            
             <div className="KittyHeader-actions">
               <button
                 className="offerButton"
