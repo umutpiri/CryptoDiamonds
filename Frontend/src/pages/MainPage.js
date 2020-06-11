@@ -27,6 +27,8 @@ class MainPage extends React.Component {
       ],
     };
   }
+
+
   render() {
     const items = this.state.itemContainer.map((mapItem, index) => (
       <Item
@@ -36,33 +38,42 @@ class MainPage extends React.Component {
         price={mapItem.price}
       />
     ));
+  
     return (
-      <div className="AllCategories">
+      <div className="MainPage">
+        <div className = "discordAnnouncement">
+          <span >
+                "Share your collection in the "
+                <a href="https://discord.gg/K86qFg">CryptoColors Discord </a>" for
+                a chance to get featured in the Collection of the Week!"
+          </span>
+        </div>
+
         <Link to="/offers">OFFERS</Link>
         <div className="KittiesCategory">
-          <h1> Best Seller</h1>
-          <p>
-            <span>
-              "Share your collection in the "
-              <a href="https://discord.gg/K86qFg">CryptoColors Discord </a>" for
-              a chance to get featured in the Collection of the Week!"
-            </span>
-          </p>
-          {items}
+          <h1 className = "CategoryHeader" > Best Seller</h1>
           {items}
         </div>
 
         <div className="KittiesCategory">
-          <h1> Great-value Gems</h1>
-          {items}
+          <h1 className = "CategoryHeader" > Great Value Gems</h1>
+          {items}          
+          <text>{'\n'}</text>
           {items}
         </div>
 
         <div className="KittiesCategory">
-          <h1> Fundemental Gems</h1>
+          <h1 className = "CategoryHeader" > Fundemental Gems</h1>
           {items}
+          <text>{'\n'}</text>
           {items}
         </div>
+
+        <div className="KittiesCategory">
+          <h1 className = "CategoryHeader" > Special Edition Gems</h1>
+          {items}
+        </div>
+
       </div>
     );
   }

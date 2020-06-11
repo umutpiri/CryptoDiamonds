@@ -1,9 +1,24 @@
-.AllCategories {
+.MainPage {
   display: "block";
   text-align: center;
+  margin-left: 400px;
+  margin-right: 400px;
 }
 
 .KittiesCategory {
   margin-top: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+  white-space: pre-wrap;
+}
+
+.discordAnnouncement{
+  margin-top: 50px;
+  margin-bottom: 40px;
+  color: #C8614B;
+  font-weight: bold;
+  font-size: large;
+}
+
+.CategoryHeader{
+  margin-bottom: 40px;
 }
