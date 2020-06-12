@@ -49,9 +49,8 @@ class ProfilePage extends React.Component {
 
           <div class= "ownerInfo">
             <h2> {this.valletID} </h2>
-            <button class = "copyAddress" onClick={() => {navigator.clipboard.writeText(this.valletID)}} > Copy Address </button>
+            <button class = "copyAddress" onClick={() => {navigator.clipboard.writeText(this.valletID)}} > Copy Address </button>        
           </div>
-
         </div>
         
         <div class = "showAllDiamonds">

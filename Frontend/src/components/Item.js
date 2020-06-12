@@ -6,11 +6,7 @@ class Item extends React.Component {
   render() {
     return (
       <div className="KittiesGrid-item">
-        <div
-          className="KittyCard-main"
-          onClick={(event) => (window.location.href = "/itemPage")}
-        >
-          <div className="KittyCard-main-container">
+        <a href="/itemPage">
             <div
               className="KittyCard-imageContainer shadow"
               style={{ border: "2px solid grey", borderRadius: 5 }}
@@ -41,8 +37,7 @@ class Item extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+        </a>
       </div>
     );
   }
