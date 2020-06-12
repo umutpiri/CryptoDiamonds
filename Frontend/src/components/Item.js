@@ -35,8 +35,10 @@ class Item extends React.Component {
                   margin: 5,
                 }}
               >
-                <div> {this.props.color || "#000000"} </div>
-                <div>{this.props.price}</div>
+                <div className ="cardInformation">
+                  <div> {this.props.color || "#000000"} </div>
+                  <div>{this.props.price}</div>
+                </div>
               </div>
             </div>
           </div>

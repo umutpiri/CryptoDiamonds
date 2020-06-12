@@ -6,7 +6,7 @@
   background-color: rgb(211, 243, 247);
   border-radius: 5%;
   margin-left: 15px;
-  margin-bottom: 80px;
+  margin-bottom: 90px;
   cursor: pointer;
 }
 
@@ -17,4 +17,10 @@
 .oldubu {
   filter: invert(8%) sepia(100%) saturate(7448%) hue-rotate(247deg)
     brightness(96%) contrast(144%);
+}
+
+.cardInformation{
+  margin-bottom: 40px;
+  margin: 0 auto;
+  font-weight: 800;
 }
