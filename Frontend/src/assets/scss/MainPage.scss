@@ -1,3 +1,4 @@
+
 .MainPage {
   display: "block";
   text-align: center;
@@ -22,3 +23,13 @@
 .CategoryHeader{
   margin-bottom: 40px;
 }
+
+.browseAll {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  height: 50px;
+  width: 200px;
+}
+
+.browseAll:hover {background-color: #e7e7e7;}

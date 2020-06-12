@@ -60,6 +60,10 @@ const renderLogin = (user) => {
   }
   return (
     <div>
+      <Link to="/profile" style={{ color: "#FFF", margin: 5 }}>
+        Profile
+      </Link>
+ 
       <Link to="/login" style={{ color: "#FFF", margin: 5 }}>
         Login
       </Link>
@@ -67,6 +71,7 @@ const renderLogin = (user) => {
       <Link to="/register" style={{ color: "#FFF", margin: 5 }}>
         Register
       </Link>
+
     </div>
   );
 };

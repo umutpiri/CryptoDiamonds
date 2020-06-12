@@ -2,7 +2,6 @@ import React from "react";
 import "../assets/scss/MainPage.scss";
 import "../assets/scss/App.scss";
 import Item from "../components/Item";
-import { Link } from "react-router-dom";
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -10,18 +9,18 @@ class MainPage extends React.Component {
     this.state = {
       itemContainer: [
         {
-          price: "50$",
+          price: "50 bdy",
           color: "#FFFF00",
         },
         {
-          price: "100$",
+          price: "100 bdy",
           color: "#00FF00",
         },
         {
-          price: "70$",
+          price: "70 bdy",
         },
         {
-          price: "10$",
+          price: "10 bdy",
           color: "#D3F3F7",
         },
       ],
@@ -49,10 +48,10 @@ class MainPage extends React.Component {
           </span>
         </div>
 
-        <Link to="/offers">OFFERS</Link>
         <div className="KittiesCategory">
           <h1 className = "CategoryHeader" > Best Seller</h1>
           {items}
+          <button class="browseAll">Browse All</button>
         </div>
 
         <div className="KittiesCategory">
@@ -60,6 +59,7 @@ class MainPage extends React.Component {
           {items}          
           <text>{'\n'}</text>
           {items}
+          <button class="browseAll">Browse All</button>
         </div>
 
         <div className="KittiesCategory">
@@ -67,11 +67,13 @@ class MainPage extends React.Component {
           {items}
           <text>{'\n'}</text>
           {items}
+          <button class="browseAll">Browse All</button>
         </div>
 
         <div className="KittiesCategory">
           <h1 className = "CategoryHeader" > Special Edition Gems</h1>
           {items}
+          <button class="browseAll">Browse All</button>
         </div>
 
       </div>
