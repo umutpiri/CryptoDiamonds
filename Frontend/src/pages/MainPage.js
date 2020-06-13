@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/scss/MainPage.scss";
 import "../assets/scss/App.scss";
 import Item from "../components/Item";
+import { useHistory } from "react-router-dom";
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -27,6 +28,10 @@ class MainPage extends React.Component {
     };
   }
 
+  routeChange = () =>{ 
+    let path = 'browseItems'; 
+    this.props.history.push(path);
+  }
 
   render() {
     const items = this.state.itemContainer.map((mapItem, index) => (
@@ -51,7 +56,7 @@ class MainPage extends React.Component {
         <div className="KittiesCategory">
           <h1 className = "CategoryHeader" > Best Seller</h1>
           {items}
-          <button class="browseAll">Browse All</button>
+          <button class="browseAll"  onClick={this.routeChange}  >Browse All</button>
         </div>
 
         <div className="KittiesCategory">
@@ -59,7 +64,7 @@ class MainPage extends React.Component {
           {items}          
           <text>{'\n'}</text>
           {items}
-          <button class="browseAll">Browse All</button>
+          <button class="browseAll"  onClick={this.routeChange}  >Browse All</button>
         </div>
 
         <div className="KittiesCategory">
@@ -67,13 +72,13 @@ class MainPage extends React.Component {
           {items}
           <text>{'\n'}</text>
           {items}
-          <button class="browseAll">Browse All</button>
+          <button class="browseAll"  onClick={this.routeChange}  >Browse All</button>
         </div>
 
         <div className="KittiesCategory">
           <h1 className = "CategoryHeader" > Special Edition Gems</h1>
           {items}
-          <button class="browseAll">Browse All</button>
+          <button class="browseAll"  onClick={this.routeChange}  >Browse All</button>
         </div>
 
       </div>
