@@ -12,18 +12,18 @@ class ProfilePage extends React.Component {
     this.state = {
       itemContainer: [
         {
-          price: "50$",
+          price: "50 bdy",
           color: "#FFFF00",
         },
         {
-          price: "100$",
+          price: "100 bdy",
           color: "#00FF00",
         },
         {
-          price: "70$",
+          price: "70 bdy",
         },
         {
-          price: "10$",
+          price: "10 bdy",
           color: "#D3F3F7",
         },
       ],
