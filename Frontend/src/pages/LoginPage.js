@@ -3,6 +3,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
+import axios from "axios";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
@@ -12,6 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
+
+const backend = "http://localhost:8181";
 
 const useStyles = (theme) => ({
   paper: {
@@ -44,9 +47,20 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  login(data) {
+    axios
+      .post(backend + "/user/login", data)
+      .then((res) => {
+        console.log(res);
+        this.props.login(res.data.user);
+        this.props.history.push("/");
+      })
+      .catch((err) => console.log(err));
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    this.props.login(this.state);
+    this.login(this.state);
   }
 
   render() {

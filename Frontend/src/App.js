@@ -6,6 +6,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 import ProfilePage from "./pages/ProfilePage";
 import MainPage from "./pages/MainPage";
@@ -13,8 +14,10 @@ import ItemPage from "./pages/ItemPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import OffersPage from "./pages/OffersPage";
-import BrowseCategoryItems from "./pages/BrowseCategoryItems";
+import BrowseAllItems from "./pages/BrowseAllItems";
 import Header from "./components/Header";
+
+const backend = "http://localhost:8181";
 
 const useStyles = (theme) => ({
   root: {
@@ -35,11 +38,25 @@ class App extends React.Component {
       user: {},
     };
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
-  login(data) {
-    console.log("USER DATA");
-    console.log(data);
+  componentDidMount() {
+    axios
+      .get(backend + "/user")
+      .then((res) => {
+        console.log(res);
+        if (res.data.user) this.setState({ user: res.data.user });
+      })
+      .catch((err) => console.log(err));
+  }
+
+  login(user) {
+    this.setState({ user: user });
+  }
+
+  logout() {
+    this.setState({ user: {} });
   }
 
   render() {
@@ -47,18 +64,35 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Header user={this.state.user} />
+          <Header user={this.state.user} logout={this.logout} />
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route
               path="/login"
               render={(props) => <LoginPage login={this.login} {...props} />}
             />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/itemPage" component={ItemPage} />
-            <Route path="/profile" component={ProfilePage} />
+            <Route
+              path="/register"
+              render={(props) => (
+                <RegisterPage register={this.register} {...props} />
+              )}
+            />
+            <Route
+              path="/itemPage/:id"
+              render={(props) => (
+                <ItemPage id={props.match.params.id}></ItemPage>
+              )}
+            />
+            <Route
+              path="/profile/:username"
+              render={(props) => (
+                <ProfilePage
+                  username={props.match.params.username}
+                ></ProfilePage>
+              )}
+            />
             <Route path="/offers" component={OffersPage} />
-            <Route path="/browseItems" component={BrowseCategoryItems} />
+            <Route path="/browseItems" component={BrowseAllItems} />
           </Switch>
         </div>
       </Router>

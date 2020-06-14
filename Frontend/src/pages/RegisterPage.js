@@ -12,6 +12,9 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+const backend = "http://localhost:8181";
 
 const useStyles = (theme) => ({
   paper: {
@@ -41,6 +44,17 @@ class Register extends React.Component {
       email: "",
       password: "",
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    axios
+      .post(backend + "/user", data)
+      .then((res) => this.props.history.push("/login"))
+      .catch((err) => console.log(err));
+    console.log(data);
   }
 
   render() {
@@ -55,7 +69,11 @@ class Register extends React.Component {
           <Typography component="h1" variant="h5">
             Register
           </Typography>
-          <form className={classes.form} noValidate>
+          <form
+            onSubmit={this.handleSubmit}
+            className={classes.form}
+            noValidate
+          >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -65,6 +83,8 @@ class Register extends React.Component {
                   id="username"
                   label="Username"
                   name="username"
+                  value={this.state.username}
+                  onChange={(e) => this.setState({ username: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -76,6 +96,8 @@ class Register extends React.Component {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={this.state.email}
+                  onChange={(e) => this.setState({ email: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -88,6 +110,8 @@ class Register extends React.Component {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ password: e.target.value })}
                 />
               </Grid>
             </Grid>

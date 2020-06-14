@@ -3,10 +3,27 @@ const router = express.Router();
 const User = require("../database/models/user");
 const passport = require("../passport");
 
+const wallets = [
+  {
+    public: "0x3eac84C9598b70D6521026690640Cb51d7df1E32",
+    private: "cc3b0cab8b5c47a3386372fa05dcb7074c7d0111e8d2202d12e874533f6d2ccd",
+  },
+  {
+    public: "0xfcC3Ce738d211AC07cca5EfC51E234659d56E24E",
+    private: "9c45ac53832a8ace715e33c843015b0da4caf8ad64f5ea21913e896231ac78d8",
+  },
+  {
+    public: "0x9f1156a05Eef5Be7c8c7437cF64422F995f48de0",
+    private: "dcb70a2157082407011b6e6f5780e6b9bb219f2a28ceca0c926b20936f72e608",
+  },
+];
+
+var count = 0;
+
 router.post("/", (req, res) => {
   console.log("user signup");
 
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
   // ADD VALIDATION
   User.findOne({ username: username }, (err, user) => {
     if (err) {
@@ -19,7 +36,12 @@ router.post("/", (req, res) => {
       const newUser = new User({
         username: username,
         password: password,
+        email: email,
+        coin: 100,
+        public: wallets[count].public,
+        private: wallets[count].private,
       });
+      count += 1;
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
         res.json(savedUser);
@@ -41,15 +63,26 @@ router.post(
     var userInfo = {
       username: req.user.username,
     };
-    res.send(userInfo);
+    User.findOne({ username: req.user.username }, (err, user) => {
+      res.json({ user });
+    });
   }
 );
 
+router.post("/get", (res, req) => {
+  console.log(req.body);
+  User.findOne({ username: req.body.username }, (err, user) => {
+    res.json({ user });
+  });
+});
+
 router.get("/", (req, res, next) => {
   console.log("===== user!!======");
-  console.log(req.user);
+  console.log(req);
   if (req.user) {
-    res.json({ user: req.user });
+    User.findOne({ username: req.user.username }, (err, user) => {
+      res.json({ user });
+    });
   } else {
     res.json({ user: null });
   }

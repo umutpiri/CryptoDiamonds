@@ -5,8 +5,35 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const userSchema = new Schema({
-  username: { type: String, unique: true, required: false },
-  password: { type: String, unique: false, required: false },
+  username: { type: String, unique: true, required: true },
+  password: { type: String, unique: false, required: true },
+  email: { type: String, unique: false, required: true },
+  coin: Number,
+  public: String,
+  private: String,
+  diamonds: [{ type: Schema.Types.ObjectId, ref: "Diamond" }],
+  received_offers: [
+    {
+      sender: { type: Schema.Types.ObjectId, ref: "User" },
+      diamond: { type: Schema.Types.ObjectId, ref: "Diamond" },
+      offer: Number,
+    },
+  ],
+  sent_offers: [
+    {
+      receiver: { type: Schema.Types.ObjectId, ref: "User" },
+      diamond: { type: Schema.Types.ObjectId, ref: "Diamond" },
+      offer: Number,
+    },
+  ],
+  transactions: [
+    {
+      sender: { type: Schema.Types.ObjectId, ref: "User" },
+      receiver: { type: Schema.Types.ObjectId, ref: "User" },
+      diamond: { type: Schema.Types.ObjectId, ref: "Diamond" },
+      offer: Number,
+    },
+  ],
 });
 
 // Define schema methods
