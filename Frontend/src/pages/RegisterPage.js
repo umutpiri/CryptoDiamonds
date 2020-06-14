@@ -51,7 +51,7 @@ class Register extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post(backend + "/user", data)
+      .post(backend + "/user", this.state)
       .then((res) => this.props.history.push("/login"))
       .catch((err) => console.log(err));
     console.log(data);

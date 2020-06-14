@@ -11,7 +11,7 @@ class Item extends React.Component {
         <Link to={"/itemPage/" + this.props.id}>
           <div
             className="KittyCard-imageContainer shadow"
-            style={{ border: "2px solid grey", borderRadius: 5 }}
+            style={{ border: "3px solid grey", borderRadius: 5 }}
           >
             <Diamond color={this.props.color} size={200} />
             <div
@@ -25,7 +25,7 @@ class Item extends React.Component {
             >
               <div className="cardInformation">
                 <div> {this.props.color || "#000000"} </div>
-                <div>{this.props.price} bdy</div>
+                {this.props.isSale ? <div>{this.props.price} bdy</div> : <></>}
               </div>
             </div>
           </div>

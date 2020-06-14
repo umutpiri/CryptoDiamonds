@@ -52,7 +52,7 @@ class Login extends React.Component {
       .post(backend + "/user/login", data)
       .then((res) => {
         console.log(res);
-        this.props.login(res.data.user);
+        this.props.login(res.data);
         this.props.history.push("/");
       })
       .catch((err) => console.log(err));

@@ -58,7 +58,7 @@ function getRandomColor() {
 // Diamond
 // get diamonds of specified username or sender
 app.get("/diamond/get", (req, res) => {
-  var username = req.user.username;
+  var username = req.body.username;
   if (req.body.username) username = req.body.username;
   Diamond.find({ owner: username }, (err, diamonds) => {
     res.json(diamonds);
@@ -89,10 +89,10 @@ app.post("/diamond/create", (req, res) => {
         const newDiamond = new Diamond({
           id: data.tokenId,
           color: color,
-          owner: req.user.username,
+          owner: req.body.username,
         });
         newDiamond.save((err, savedDiamond) => {
-          User.findOne({ username: req.user.username }, (err, user) => {
+          User.findOne({ username: req.body.username }, (err, user) => {
             user.diamonds.push(savedDiamond);
             user.save(async (err, savedUser) => {
               await savedUser.populate("diamonds").execPopulate();
@@ -111,7 +111,7 @@ app.post("/diamond/buy", (req, res) => {
     if (!diamond.is_sale) {
       res.send("diamond is not sale").status(400);
     }
-    User.findOne({ username: req.user.username }, (err, buyer) => {
+    User.findOne({ username: req.body.username }, (err, buyer) => {
       if (buyer.coin < diamond.price) {
         res.send("not enough coin").status(400);
       }
@@ -169,6 +169,81 @@ app.get("/diamond/best-seller", (req, res) => {
 app.get("/diamond/get-sales", (req, res) => {
   Diamond.find({ is_sale: true }, (err, diamonds) => {
     res.json(diamonds);
+  });
+});
+
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function sumHex(hex1, hex2) {
+  rgb1 = hexToRgb(hex1);
+  rgb2 = hexToRgb(hex2);
+
+  r = rgb1.r + rgb2.r > 255 ? 255 : rgb1.r + rgb2.r;
+  g = rgb1.g + rgb2.g > 255 ? 255 : rgb1.g + rgb2.g;
+  b = rgb1.b + rgb2.b > 255 ? 255 : rgb1.b + rgb2.b;
+
+  return rgbToHex(r, g, b);
+}
+
+app.post("/diamond/merge", (req, res) => {
+  var firstId = req.body.firstId;
+  var secondId = req.body.secondId;
+  Diamond.findOne({ id: firstId }, (err, firstDiamond) => {
+    Diamond.findOne({ id: secondId }, (err, secondDiamond) => {
+      const owner = firstDiamond.owner;
+      User.findOne({ username: owner }, (err, user) => {
+        var newColor = sumHex(firstDiamond.color, secondDiamond.color);
+        hudex
+          .createAndMint({
+            name: newColor,
+            is_nf: true,
+            img: "https://g.hizliresim.com/beyaz-lamborghini",
+          })
+          .then((data) => {
+            const newDiamond = new Diamond({
+              id: data.tokenId,
+              color: newColor,
+              owner: owner,
+            });
+            newDiamond.save((err, savedDiamond) => {
+              /*user.diamonds.splice(
+                user.diamonds.findIndex((item) => item.id === firstId),
+                1
+              );
+              user.diamonds.splice(
+                user.diamonds.findIndex((item) => item.id === secondId),
+                1
+              );*/
+              firstDiamond.remove();
+              secondDiamond.remove();
+              user.diamonds.push(savedDiamond);
+              user
+                .save()
+                .then((data) => res.json(data))
+                .catch((err) => console.log(err));
+            });
+          })
+          .catch((err) => console.log(err));
+      });
+    });
   });
 });
 

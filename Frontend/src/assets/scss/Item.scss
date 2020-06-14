@@ -10,6 +10,17 @@
   cursor: pointer;
 }
 
+.KittiesGrid-item-new {
+  position: relative;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: rgb(211, 243, 247);
+  border-radius: 5%;
+  margin-left: 15px;
+  margin-bottom: 90px;
+}
+
 .overlay-item {
   filter: opacity(0.75) drop-shadow(0 0 0 #550700);
 }
@@ -19,7 +30,7 @@
     brightness(96%) contrast(144%);
 }
 
-.cardInformation{
+.cardInformation {
   margin-bottom: 40px;
   margin: 0 auto;
   font-weight: 800;

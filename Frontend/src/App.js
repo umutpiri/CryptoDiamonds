@@ -43,10 +43,10 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get(backend + "/user")
+      .post(backend + "/user/get", { username: "umut" })
       .then((res) => {
-        console.log(res);
-        if (res.data.user) this.setState({ user: res.data.user });
+        console.log(res.data);
+        if (res.data) this.setState({ user: res.data });
       })
       .catch((err) => console.log(err));
   }
@@ -88,6 +88,7 @@ class App extends React.Component {
               render={(props) => (
                 <ProfilePage
                   username={props.match.params.username}
+                  loggedInUser={this.state.user}
                 ></ProfilePage>
               )}
             />

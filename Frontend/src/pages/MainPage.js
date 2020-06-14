@@ -59,6 +59,17 @@ class MainPage extends React.Component {
 
     return (
       <div className="MainPage">
+        <button
+          class="browseAll"
+          onClick={() => {
+            axios
+              .post(backend + "/diamond/create", { username: "umut" })
+              .then((res) => console.log(res))
+              .catch((err) => console.log(err));
+          }}
+        >
+          Create Diamonds
+        </button>
         <div className="discordAnnouncement">
           <span>
             "Share your collection in the "

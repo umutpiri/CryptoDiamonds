@@ -18,7 +18,7 @@ const wallets = [
   },
 ];
 
-var count = 0;
+var count = 2;
 
 router.post("/", (req, res) => {
   console.log("user signup");
@@ -49,10 +49,11 @@ router.post("/", (req, res) => {
     }
   });
 });
-
+/*
 router.post(
   "/login",
   function (req, res, next) {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     console.log("routes/user.js, login, req.body: ");
     console.log(req.body);
     next();
@@ -67,20 +68,29 @@ router.post(
       res.json({ user });
     });
   }
-);
+);*/
 
-router.post("/get", (res, req) => {
+router.post("/login", (req, res) => {
+  User.findOne({ username: req.body.username }, async (err, user) => {
+    await user.populate("diamonds").execPopulate();
+    res.json(user);
+  });
+});
+
+router.post("/get", (req, res) => {
+  console.log("*********************");
   console.log(req.body);
-  User.findOne({ username: req.body.username }, (err, user) => {
-    res.json({ user });
+  console.log("*********************");
+  User.findOne({ username: req.body.username }, async (err, user) => {
+    await user.populate("diamonds").execPopulate();
+    res.json(user);
   });
 });
 
 router.get("/", (req, res, next) => {
   console.log("===== user!!======");
-  console.log(req);
-  if (req.user) {
-    User.findOne({ username: req.user.username }, (err, user) => {
+  if (req.body) {
+    User.findOne({ username: req.body.username }, (err, user) => {
       res.json({ user });
     });
   } else {
