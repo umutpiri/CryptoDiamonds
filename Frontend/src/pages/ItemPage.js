@@ -54,18 +54,17 @@ class ItemPage extends React.Component {
               alignItems: "center",
             }}
           >
-            <Diamond color={"#123488"} size={500}></Diamond>
+            <Diamond color={this.state.diamond.color} size={500}></Diamond>
           </div>
         </div>
         <div className="KittyProfile">
           <div className="KittyHeader">
-            <div className="KittyHeader-main">
+            <div style={{ marginBottom: 50 }} className="KittyHeader-main">
               <h1 className="KittyHeader-name-className">
                 {this.state.diamond.color}
               </h1>
               <div>token id: {this.state.diamond.id}</div>
             </div>
-
             <Link to={"/profile/" + this.state.diamond.owner}>
               <div className="KittyHeader-owner">
                 <h4 className="owner">Owner</h4>
@@ -96,7 +95,7 @@ class ItemPage extends React.Component {
                       <h3 class="KittyBid-box-title">Buy now price </h3>
                       <button class="buyWithDio">Buy with bdy</button>
                       <div>
-                        <h5> 10 bugday(bdy)</h5>
+                        <h5> {this.state.diamond.price} bugday(bdy)</h5>
                       </div>
                     </div>
                   </div>

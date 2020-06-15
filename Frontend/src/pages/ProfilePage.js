@@ -4,7 +4,7 @@ import ownerPhoto from "../assets/img/richieRich.jpg";
 import Item from "../components/Item";
 import axios from "axios";
 import ProfileItem from "../components/ProfileItem";
-
+import OfferTabs from "../components/OfferTabs";
 import "../assets/scss/Item.scss";
 
 const backend = "http://localhost:8181";
@@ -82,7 +82,10 @@ class ProfilePage extends React.Component {
           firstId: this.state.selected[0],
           secondId: this.state.selected[1],
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res);
+          window.location.reload();
+        })
         .catch((err) => console.log(err));
     }
   }
@@ -174,6 +177,7 @@ class ProfilePage extends React.Component {
             </div>
             <div class="allDiamaonds">{items}</div>
           </div>
+          <OfferTabs />
         </div>
       );
     } else {
@@ -185,6 +189,7 @@ class ProfilePage extends React.Component {
           price={mapItem.price}
           id={mapItem.id}
           isSale={mapItem.is_sale}
+          username={this.props.username}
         />
       ));
       return (

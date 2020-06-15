@@ -54,6 +54,8 @@ class MainPage extends React.Component {
         message={mapItem.message}
         price={mapItem.price}
         id={mapItem.id}
+        isSale={mapItem.is_sale}
+        username={this.props.user.username}
       />
     ));
 
@@ -63,7 +65,9 @@ class MainPage extends React.Component {
           class="browseAll"
           onClick={() => {
             axios
-              .post(backend + "/diamond/create", { username: "umut" })
+              .post(backend + "/diamond/create", {
+                username: this.props.user.username,
+              })
               .then((res) => console.log(res))
               .catch((err) => console.log(err));
           }}

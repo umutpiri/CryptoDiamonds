@@ -18,7 +18,7 @@ const wallets = [
   },
 ];
 
-var count = 2;
+var count = 0;
 
 router.post("/", (req, res) => {
   console.log("user signup");

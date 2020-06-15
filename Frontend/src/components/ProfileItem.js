@@ -83,6 +83,7 @@ class ProfileItem extends React.Component {
                 >
                   <input
                     value={this.state.input}
+                    placeholder="price"
                     onChange={(e) => this.setState({ input: e.target.value })}
                     style={{ padding: 5, width: 50 }}
                   ></input>

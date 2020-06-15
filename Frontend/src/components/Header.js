@@ -39,14 +39,14 @@ class Header extends React.Component {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <div
             style={{
-              margin: 15,
               borderRadius: 10,
               fontSize: 18,
-              marginRight: 35,
+              marginRight: 45,
             }}
           >
             {user.coin}
@@ -55,14 +55,15 @@ class Header extends React.Component {
           <Link
             to={"/profile/" + user.username}
             style={{
-              margin: 10,
+              margin: 15,
+              paddingTop: 5,
               fontSize: 25,
               color: "#FFF",
               display: "flex",
               flexDirection: "row",
             }}
           >
-            <UserIcon style={{ fontSize: 25, margin: 5 }} />
+            <UserIcon style={{ fontSize: 25, margin: 0 }} />
             {user.username}
           </Link>
           <IconButton

@@ -200,7 +200,7 @@ function sumHex(hex1, hex2) {
   g = rgb1.g + rgb2.g > 255 ? 255 : rgb1.g + rgb2.g;
   b = rgb1.b + rgb2.b > 255 ? 255 : rgb1.b + rgb2.b;
 
-  return rgbToHex(r, g, b);
+  return rgbToHex(r, g, b).toUpperCase();
 }
 
 app.post("/diamond/merge", (req, res) => {

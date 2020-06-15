@@ -66,7 +66,11 @@ class App extends React.Component {
         <div>
           <Header user={this.state.user} logout={this.logout} />
           <Switch>
-            <Route exact path="/" component={MainPage} />
+            <Route
+              exact
+              path="/"
+              render={(props) => <MainPage user={this.state.user} {...props} />}
+            />
             <Route
               path="/login"
               render={(props) => <LoginPage login={this.login} {...props} />}
