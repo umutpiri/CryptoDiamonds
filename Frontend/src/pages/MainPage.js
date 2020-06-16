@@ -11,24 +11,10 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemContainer: [
-        {
-          price: "50 bdy",
-          color: "#FFFF00",
-        },
-        {
-          price: "100 bdy",
-          color: "#00FF00",
-        },
-        {
-          price: "70 bdy",
-        },
-        {
-          price: "10 bdy",
-          color: "#D3F3F7",
-        },
-      ],
       bestSeller: [],
+      greatValues: [],
+      fundamentalDiamonds: [],
+      specialEditions: [],
     };
   }
 
@@ -39,6 +25,24 @@ class MainPage extends React.Component {
         this.setState({ bestSeller: res.data });
       })
       .catch((err) => console.log(err));
+    axios
+      .get(backend + "/diamond/best-seller")
+      .then((res) => {
+        this.setState({ greatValues: res.data });
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get(backend + "/diamond/best-seller")
+      .then((res) => {
+        this.setState({ fundamentalDiamonds: res.data });
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get(backend + "/diamond/best-seller")
+      .then((res) => {
+        this.setState({ specialEditions: res.data });
+      })
+      .catch((err) => console.log(err));
   }
 
   routeChange = () => {
@@ -47,7 +51,45 @@ class MainPage extends React.Component {
   };
 
   render() {
-    const items = this.state.bestSeller.map((mapItem, index) => (
+    const bestSellers = this.state.bestSeller.map((mapItem, index) => (
+      <Item
+        key={index}
+        color={mapItem.color}
+        message={mapItem.message}
+        price={mapItem.price}
+        id={mapItem.id}
+        isSale={mapItem.is_sale}
+        username={this.props.user.username}
+      />
+    ));
+
+    const greatValues = this.state.greatValues.map((mapItem, index) => (
+      <Item
+        key={index}
+        color={mapItem.color}
+        message={mapItem.message}
+        price={mapItem.price}
+        id={mapItem.id}
+        isSale={mapItem.is_sale}
+        username={this.props.user.username}
+      />
+    ));
+
+    const fundamentalDiamonds = this.state.fundamentalDiamonds.map(
+      (mapItem, index) => (
+        <Item
+          key={index}
+          color={mapItem.color}
+          message={mapItem.message}
+          price={mapItem.price}
+          id={mapItem.id}
+          isSale={mapItem.is_sale}
+          username={this.props.user.username}
+        />
+      )
+    );
+
+    const specialEditions = this.state.specialEditions.map((mapItem, index) => (
       <Item
         key={index}
         color={mapItem.color}
@@ -61,19 +103,6 @@ class MainPage extends React.Component {
 
     return (
       <div className="MainPage">
-        <button
-          class="browseAll"
-          onClick={() => {
-            axios
-              .post(backend + "/diamond/create", {
-                username: this.props.user.username,
-              })
-              .then((res) => console.log(res))
-              .catch((err) => console.log(err));
-          }}
-        >
-          Create Diamonds
-        </button>
         <div className="discordAnnouncement">
           <span>
             "Share your collection in the "
@@ -84,7 +113,7 @@ class MainPage extends React.Component {
 
         <div className="KittiesCategory">
           <h1 className="CategoryHeader"> Best Seller</h1>
-          {items}
+          {bestSellers}
           <button class="browseAll" onClick={this.routeChange}>
             Browse All
           </button>
@@ -92,27 +121,23 @@ class MainPage extends React.Component {
 
         <div className="KittiesCategory">
           <h1 className="CategoryHeader"> Great Value Gems</h1>
-          {items}
-          <text>{"\n"}</text>
-          {items}
+          {greatValues}
           <button class="browseAll" onClick={this.routeChange}>
             Browse All
           </button>
         </div>
 
         <div className="KittiesCategory">
-          <h1 className="CategoryHeader"> Fundemental Gems</h1>
-          {items}
-          <text>{"\n"}</text>
-          {items}
+          <h1 className="CategoryHeader"> Fundamental Diamonds</h1>
+          {fundamentalDiamonds}
           <button class="browseAll" onClick={this.routeChange}>
             Browse All
           </button>
         </div>
 
         <div className="KittiesCategory">
-          <h1 className="CategoryHeader"> Special Edition Gems</h1>
-          {items}
+          <h1 className="CategoryHeader"> Special Edition Diamonds</h1>
+          {specialEditions}
           <button class="browseAll" onClick={this.routeChange}>
             Browse All
           </button>

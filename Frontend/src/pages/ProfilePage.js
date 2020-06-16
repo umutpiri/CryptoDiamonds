@@ -7,6 +7,8 @@ import ProfileItem from "../components/ProfileItem";
 import OfferTabs from "../components/OfferTabs";
 import "../assets/scss/Item.scss";
 
+import PopupDiamond from "../components/PopupDiamond";
+
 const backend = "http://localhost:8181";
 
 class ProfilePage extends React.Component {
@@ -17,6 +19,8 @@ class ProfilePage extends React.Component {
     this.state = {
       user: { diamonds: [] },
       selected: [],
+      isModal: false,
+      newDiamond: {},
     };
 
     this.selectItem = this.selectItem.bind(this);
@@ -84,7 +88,10 @@ class ProfilePage extends React.Component {
         })
         .then((res) => {
           console.log(res);
-          window.location.reload();
+          this.setState({
+            newDiamond: res.data.diamond,
+            isModal: true,
+          });
         })
         .catch((err) => console.log(err));
     }
@@ -92,19 +99,10 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     axios
-      .get(backend + "/user")
-      .then((res) => {
-        console.log(res);
-        if (res.data.user) this.setState({ username: res.data.user.username });
-      })
-      .catch((err) => console.log(err));
-    axios
       .post(backend + "/user/get", { username: this.props.username })
       .then((res) => {
         console.log(res.data);
-        var data = res.data;
-        data["is_selected"] = false;
-        this.setState({ user: data });
+        this.setState({ user: res.data });
       })
       .catch((err) => console.log(err));
   }
@@ -161,7 +159,7 @@ class ProfilePage extends React.Component {
               <h1 class="diamondsText">Diamonds</h1>
               <div
                 style={{
-                  backgroundColor: "#008000",
+                  backgroundColor: "#32CD32",
                   padding: 10,
                   color: "#FFF",
                   paddingTop: 15,
@@ -178,6 +176,15 @@ class ProfilePage extends React.Component {
             <div class="allDiamaonds">{items}</div>
           </div>
           <OfferTabs />
+          {this.state.isModal ? (
+            <PopupDiamond
+              color={this.state.newDiamond.color}
+              closePopup={() => {
+                this.setState({ isModal: false });
+                window.location.reload();
+              }}
+            />
+          ) : null}
         </div>
       );
     } else {

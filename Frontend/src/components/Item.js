@@ -60,17 +60,20 @@ class Item extends React.Component {
                     justifyContent: "space-between",
                     alignItems: "space-between",
                     width: "150px",
+                    marginTop: 5,
                   }}
                 >
                   <div style={{ padding: 5 }}>{this.props.price} bdy</div>
                   {this.props.username ? (
                     <div
                       style={{
-                        backgroundColor: "#148C45",
+                        backgroundColor: "#32CD32",
                         borderRadius: 7,
                         padding: 5,
                         cursor: "pointer",
                         color: "#FFF",
+                        paddingRight: 10,
+                        paddingLeft: 10,
                       }}
                       onClick={() => this.props.cancelSell(this.props.id)}
                     >

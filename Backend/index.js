@@ -161,7 +161,7 @@ app.post("/diamond/cancel-sell", (req, res) => {
 app.get("/diamond/best-seller", (req, res) => {
   Diamond.find({ is_sale: true }, (err, diamonds) => {
     const shuffled = diamonds.sort(() => 0.5 - Math.random());
-    let selected = shuffled.slice(0, 4);
+    let selected = shuffled.slice(0, 5);
     res.json(selected);
   });
 });
@@ -237,7 +237,9 @@ app.post("/diamond/merge", (req, res) => {
               user.diamonds.push(savedDiamond);
               user
                 .save()
-                .then((data) => res.json(data))
+                .then((savedUser) =>
+                  res.json({ diamond: savedDiamond, user: savedUser })
+                )
                 .catch((err) => console.log(err));
             });
           })

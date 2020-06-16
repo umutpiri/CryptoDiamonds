@@ -1,4 +1,3 @@
-
 .MainPage {
   display: "block";
   text-align: center;
@@ -12,15 +11,15 @@
   white-space: pre-wrap;
 }
 
-.discordAnnouncement{
+.discordAnnouncement {
   margin-top: 50px;
   margin-bottom: 40px;
-  color: #C8614B;
+  color: #c8614b;
   font-weight: bold;
   font-size: large;
 }
 
-.CategoryHeader{
+.CategoryHeader {
   margin-bottom: 40px;
 }
 
@@ -30,6 +29,9 @@
   border: 2px solid #e7e7e7;
   height: 50px;
   width: 200px;
+  cursor: pointer;
 }
 
-.browseAll:hover {background-color: #e7e7e7;}
+.browseAll:hover {
+  background-color: #e7e7e7;
+}

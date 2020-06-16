@@ -55,6 +55,7 @@ class ProfileItem extends React.Component {
                   justifyContent: "space-between",
                   alignItems: "space-between",
                   width: "150px",
+                  marginTop: 5,
                 }}
               >
                 <div style={{ padding: 5 }}>{this.props.price} bdy</div>
@@ -64,6 +65,8 @@ class ProfileItem extends React.Component {
                     borderRadius: 7,
                     padding: 5,
                     cursor: "pointer",
+                    paddingLeft: 10,
+                    paddingRight: 10,
                   }}
                   onClick={() => this.props.cancelSell(this.props.id)}
                 >
@@ -79,13 +82,14 @@ class ProfileItem extends React.Component {
                     justifyContent: "space-between",
                     alignItems: "space-between",
                     width: "150px",
+                    marginTop: 5,
                   }}
                 >
                   <input
                     value={this.state.input}
                     placeholder="price"
                     onChange={(e) => this.setState({ input: e.target.value })}
-                    style={{ padding: 5, width: 50 }}
+                    style={{ padding: 5, width: 70, borderRadius: 7 }}
                   ></input>
                   <div
                     style={{
@@ -93,6 +97,8 @@ class ProfileItem extends React.Component {
                       borderRadius: 7,
                       padding: 5,
                       cursor: "pointer",
+                      paddingLeft: 10,
+                      paddingRight: 10,
                     }}
                     onClick={() =>
                       this.props.sell(this.props.id, this.state.input)

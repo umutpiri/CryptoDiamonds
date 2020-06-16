@@ -93,11 +93,16 @@ class App extends React.Component {
                 <ProfilePage
                   username={props.match.params.username}
                   loggedInUser={this.state.user}
-                ></ProfilePage>
+                />
               )}
             />
             <Route path="/offers" component={OffersPage} />
-            <Route path="/browseItems" component={BrowseAllItems} />
+            <Route
+              path="/browseItems"
+              render={(props) => (
+                <BrowseAllItems username={this.state.user.username} />
+              )}
+            />
           </Switch>
         </div>
       </Router>
