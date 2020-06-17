@@ -74,7 +74,7 @@ class BrowseAllItems extends React.Component {
               });
             }}
           >
-            Sort {this.state.isAscending ? "ascending" : "descending"}
+            Sort price {this.state.isAscending ? "ascending" : "descending"}
           </div>
         </div>
         <div className="AllItems">{items}</div>

@@ -85,7 +85,10 @@ class ItemPage extends React.Component {
               </button>
 
               {this.state.showPopup ? (
-                <Popup closePopup={this.togglePopup.bind(this)} />
+                <Popup
+                  diamond={this.state.diamond}
+                  closePopup={this.togglePopup.bind(this)}
+                />
               ) : null}
 
               {this.state.diamond.is_sale ? (
